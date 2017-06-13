@@ -1,26 +1,36 @@
 // Your JS goes here
 
-function checkboard(){
 
+function checkboard(){
   for (i=0; i<81; i++) {
-    if (i % 2) {
-      var div = document.createElement('div')
-      document.body.appendChild(div)
-      div.style.paddingBottom = '11.1%'
-      div.style.width = '11.1%'
-      div.style.float = 'left'
-      div.style.background = 'linear-gradient(red, yellow)'
-      div.style.backgroundAttachment = 'fixed'
-    } else {
-      var div = document.createElement('div')
-      document.body.appendChild(div)
-      div.style.paddingBottom = '11.1%'
-      div.style.width = '11.1%'
-      div.style.float = 'left'
-      div.style.background = 'linear-gradient(blue, green)'
-      div.style.backgroundAttachment = 'fixed'
-    }
+    var div = document.createElement('div')
+    document.body.appendChild(div)
+    div.style.paddingBottom = '11.1%'
+    div.style.width = '11.1%'
+    div.style.float = 'left'
+    div.style.backgroundColor = randColor()
+  }
+  // setInterval(function() {
+  //   div.style.backgroundColor = randColor()
+  // }, 2000);
+}
+
+function randColor() {
+  var color1 = Math.floor(Math.random()*256)
+  var color2 = Math.floor(Math.random()*256)
+  var color3 = Math.floor(Math.random()*256)
+  return 'rgb' + '(' + color1 + ', ' + color2 + ', ' + color3 + ')'
+}
+
+function shuffle() {
+  var div = document.getElementsByTagName('div')
+  for (i = 0; i < div.length; i++) {
+    div[i].style.backgroundColor = randColor()
   }
 }
 
 checkboard()
+
+setInterval(function() {
+  shuffle()
+}, 2000);
