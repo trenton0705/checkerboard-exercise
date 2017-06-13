@@ -10,9 +10,6 @@ function checkboard(){
     div.style.float = 'left'
     div.style.backgroundColor = randColor()
   }
-  // setInterval(function() {
-  //   div.style.backgroundColor = randColor()
-  // }, 2000);
 }
 
 function randColor() {
